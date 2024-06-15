@@ -11,7 +11,9 @@ console.log ('ServerConnected')
 
 app.use(cors());
 app.use(express.json());
-app.use('/api', bookRoutes);
+
+//entering bookRoutes
+app.use('/book', bookRoutes);
 
 
 
