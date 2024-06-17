@@ -1,32 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Booklist from './Booklist';
+// import Login from './Login';
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
-  const BOOK_DATA = [
-    {
-      name: '1984',
-      author: 'George Orwell',
-      genre: 'Science Fiction',
-      firstPublishedYear: 1949,
-      image: '',
-    },
-    {
-      name: 'To Kill a Mockingbird',
-      author: 'Harper Lee',
-      genre: 'Historical Fiction',
-      firstPublishedYear: 1960,
-      image: '',
-    },
-  ];
+const Home = ({ booksData }) => {
+  const navigate = useNavigate();
+
+  const goToAdd = () => {
+    navigate('/add');
+  };
+
+  const goToLogin = () => {
+    navigate('/login');
+  };
+
+  const goToSignup = () => {
+    navigate('/signup');
+  };
+
   return (
     <div>
       <div>
         <ul>
           <li>Home</li>
-          <li>Add</li>
+          <li>Current Library</li>
+          <li onClick={goToAdd}>Add</li>
+          <li onClick={goToLogin}>Login</li>
+          <li onClick={goToSignup}>Signup</li>
         </ul>
       </div>
-      <Booklist bookData={BOOK_DATA} />
+      <Booklist booksData={booksData} />
     </div>
   );
 };

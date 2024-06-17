@@ -1,5 +1,4 @@
 import React from 'react';
-import SignUp from './SignUp';
 
 const Login = () => {
   return (
@@ -7,9 +6,8 @@ const Login = () => {
       Login
       <form method="POST" action="/signup">
         <input name="username" type="text" placeholder="username"></input>
-        <input name="password" type="password"></input>
+        <input name="password" type="password" placeholder="username"></input>
         <input type="submit" value="login"></input>
-        <SignUp />
       </form>
     </div>
   );
