@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './Add.scss';
 
 const Add = ({ addNewBook }) => {
   const [newTitle, setNewTitle] = useState('');
@@ -36,20 +37,28 @@ const Add = ({ addNewBook }) => {
   };
 
   return (
-    <div>
+    <div className="add-box">
       <form onClick={saveNowBook}>
         <label>Book Title:</label>
+        <br />
         <input type="text" onChange={getNewTitle} value={newTitle} />
+        <br />
         <label>Author:</label>
+        <br />
         <input type="text" onChange={getNewAuthor} value={newAuthor} />
-        <label>Genre</label>
+        <br />
+        <label>Genre:</label>
+        <br />
         <input type="text" onChange={getNewGenre} value={newGenre} />
-        <label>First Published Year</label>
+        <br />
+        <label>First Published Year:</label>
+        <br />
         <input
           type="text"
           onChange={getNewFirstPublishedYear}
           value={newFirstPublishedYear}
         />
+        <br />
         <button>Submit</button>
       </form>
     </div>

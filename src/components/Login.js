@@ -1,8 +1,9 @@
 import React from 'react';
+import './Login.scss';
 
 const Login = () => {
   return (
-    <div>
+    <div className="login-box">
       Login
       <form method="POST" action="/signup">
         <input name="username" type="text" placeholder="username"></input>

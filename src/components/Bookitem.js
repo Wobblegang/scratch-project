@@ -1,8 +1,9 @@
 import React from 'react';
+import './Book.scss';
 
 const Bookitem = ({ book }) => {
   return (
-    <div>
+    <div className="book-box">
       <img src={book.image} alt="image" />
       <ul>
         <li>Title: {book.title}</li>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SignUp.scss';
 
 const SignUp = ({ addNewUser }) => {
   const [newUsername, setNewUsername] = useState('');
@@ -26,7 +27,7 @@ const SignUp = ({ addNewUser }) => {
   };
 
   return (
-    <div>
+    <div className="signup-box">
       Signup
       <form method="POST" action="/signup">
         {/* <form> */}

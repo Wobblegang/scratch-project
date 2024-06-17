@@ -6,7 +6,7 @@ const Bookfilter = ({ genreSelect }) => {
     genreSelect(selectedGenre);
   };
   return (
-    <div>
+    <div style={{ marginBottom: '10px' }}>
       Genre:
       <select onChange={filter}>
         <option value="All Books">All Books</option>

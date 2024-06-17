@@ -8,13 +8,13 @@ const Booklist = ({ booksData }) => {
     setGenre(selectedGenre);
   };
   let filteredData = booksData;
-  //   genre === 'All Books'
-  //     ? filteredData
-  //     : (filteredData = booksData.filter((book) => book.genre === genre));
+  genre === 'All Books'
+    ? filteredData
+    : (filteredData = booksData.filter((book) => book.genre === genre));
 
-  if (genre !== 'All Books') {
-    filteredData = booksData.filter((book) => book.genre === genre);
-  }
+  // if (genre !== 'All Books') {
+  //   filteredData = booksData.filter((book) => book.genre === genre);
+  // }
   return (
     <div>
       <Bookfilter genreSelect={genreSelect} />
