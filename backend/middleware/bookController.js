@@ -1,10 +1,8 @@
 
 
 const Book = require('../models/Book');
-const bookController = () =>
-{
-
-const getBooks = async (req, res, next) => {
+const bookController = {
+getBooks : async (req, res, next) => {
     try {
         console.log ('entered getBooks')
         const books = await Book.find();
@@ -13,12 +11,8 @@ const getBooks = async (req, res, next) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
-};
-
-
-
-
-const addBooks = (req, res, next) => {
+},
+addBooks : (req, res, next) => {
     const { title, author, description, status, addedDate }= req.body
 
     Book.create({title, author, description, status, addedDate})
@@ -35,5 +29,9 @@ const addBooks = (req, res, next) => {
         })
     })
 }
-}
+};
+
+
+
+
     module.exports = bookController;

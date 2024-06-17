@@ -1,7 +1,7 @@
 // backend/config/db.js
 const mongoose = require('mongoose');
 
-const mongo_uri= 'mongodb+srv://bensonhpcheng:test1234@scratch.n5hntbi.mongodb.net/?retryWrites=true&w=majority&appName=Scratch'
+const mongo_uri= 'mongodb+srv://mikeeybui91:yC4t7F1VFnsnmi1o@cluster0.k0nokyz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
 
 const connectDB = async () => {
   try {

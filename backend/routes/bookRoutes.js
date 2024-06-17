@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bookController = require('../middleware/bookControllers');
+const bookController = require('../middleware/bookController');
 
 //backend/middleware/bookController.js
 
@@ -11,7 +11,7 @@ router.get('/books', bookController.getBooks, async (req,res) => {
 
 //add book route
 router.post('/books/add', bookController.addBooks, (req, res) => {
-    res.status(201).json(res.locals.newBook)
+   return res.status(201).json(res.locals.newBook)
 });
 
 
