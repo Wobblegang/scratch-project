@@ -9,6 +9,7 @@ const Bookfilter = ({ genreSelect }) => {
     <div>
       Genre:
       <select onChange={filter}>
+        <option value="All Books">All Books</option>
         <option value="Science Fiction">Science Fiction</option>
         <option value="Historical Fiction">Historical Fiction</option>
       </select>

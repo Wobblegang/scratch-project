@@ -3,11 +3,18 @@ import Bookitem from './Bookitem';
 import Bookfilter from './Bookfilter';
 
 const Booklist = ({ booksData }) => {
-  const [genre, setGenre] = useState('Science Fiction');
+  const [genre, setGenre] = useState('All Books');
   const genreSelect = (selectedGenre) => {
     setGenre(selectedGenre);
   };
-  const filteredData = booksData.filter((book) => book.genre === genre);
+  let filteredData = booksData;
+  //   genre === 'All Books'
+  //     ? filteredData
+  //     : (filteredData = booksData.filter((book) => book.genre === genre));
+
+  if (genre !== 'All Books') {
+    filteredData = booksData.filter((book) => book.genre === genre);
+  }
   return (
     <div>
       <Bookfilter genreSelect={genreSelect} />
