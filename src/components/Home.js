@@ -8,6 +8,23 @@ import './Home.scss';
 const Home = ({ booksData }) => {
   const navigate = useNavigate();
 
+  //implementation of useState/useEffect renders blank page
+  // const [booksData, setBooksData] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchBooks = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:8080/api/books');
+  //       const data = await response.json();
+  //       setBooksData(data);
+  //     } catch (error) {
+  //       console.error(['Error fetching books', error]);
+  //     }
+  //   };
+
+  //   fetchBooks();
+  // }, []);
+
   const goToAdd = () => {
     navigate('/add');
   };
@@ -27,6 +44,7 @@ const Home = ({ booksData }) => {
     //   </Container>
     // </Navbar>
     <div>
+      <h1>Tassled Wobbegong Library</h1>
       <div>
         <ul className="header-list">
           <li>Home</li>
@@ -41,5 +59,4 @@ const Home = ({ booksData }) => {
     </div>
   );
 };
-
 export default Home;

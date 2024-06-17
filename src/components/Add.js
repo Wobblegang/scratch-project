@@ -38,7 +38,7 @@ const Add = ({ addNewBook }) => {
 
   return (
     <div className="add-box">
-      <form onClick={saveNowBook}>
+      <form>
         <label>Book Title:</label>
         <br />
         <input type="text" onChange={getNewTitle} value={newTitle} />
@@ -59,7 +59,7 @@ const Add = ({ addNewBook }) => {
           value={newFirstPublishedYear}
         />
         <br />
-        <button>Submit</button>
+        <button onClick={saveNowBook}>Submit</button>
       </form>
     </div>
   );

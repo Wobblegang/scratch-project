@@ -13,21 +13,15 @@ const BOOKS_DATA = [
     author: 'George Orwell',
     genre: 'Science Fiction',
     firstPublishedYear: 1949,
-    image: '',
+    image: 'https://m.media-amazon.com/images/I/61ZewDE3beL._SY342_.jpg',
   },
   {
     title: 'To Kill a Mockingbird',
     author: 'Harper Lee',
     genre: 'Historical Fiction',
     firstPublishedYear: 1960,
-    image: '',
-  },
-  {
-    title: 'a',
-    author: 'abc',
-    genre: 'Historical Fiction',
-    firstPublishedYear: 1980,
-    image: '',
+    image:
+      'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1553383690i/2657.jpg',
   },
 ];
 
