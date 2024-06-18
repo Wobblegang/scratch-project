@@ -1,0 +1,16 @@
+.library-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  align-self: flex-start;
+}
+
+.options-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

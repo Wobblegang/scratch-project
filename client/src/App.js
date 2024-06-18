@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import Login from './Login';
-import Home from './Home';
-import SignUp from './SignUp';
-import Add from './Add';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Search from './components/Search/Search';
+import Register from './components/Register/Register';
+import 'normalize.css';
+import Home from './components/Home/Home';
+import Add from './components/Add/Add.js';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header.js';
 
 // const BOOKS_DATA = [
 //   {
@@ -31,11 +32,12 @@ const App = () => {
   return (
     <Router>
       <div>
+      <Header />
         <Routes>
-          <Route path='/' element={<Home booksData={booksData} />} />
-          <Route path='/add' element={<Add addNewBook={addNewBook} />} />
-          <Route path='/signup' element={<SignUp addNewUser={addNewUser} />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/' element={<Search />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/library/:charterNumber' element={<Home />} />
+          <Route path='/library/:charterNumber/addBook' element={<Add />} />
         </Routes>
       </div>
     </Router>

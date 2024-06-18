@@ -1,10 +1,10 @@
 import React from 'react';
-import './Bookitem.scss';
+import './BookItem.scss';
 
-const Bookitem = ({ book }) => {
+const Bookitem = (props) => {
   return (
-    <div className="book-box">
-      <img src={book.image} alt="image" />
+    <div className="book-container">
+      <img src={props.img} />
       <ul>
         <li>Title: {book.title}</li>
         <li>Author: {book.author}</li>
