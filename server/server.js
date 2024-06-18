@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 //entering bookRoutes
-app.use('/api/library', libraryRoutes);
+app.use('/api', libraryRoutes);
 
 //Global Error Handler
 app.use((err, req, res, next) => {
