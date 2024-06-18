@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Login from './Login';
-import Home from './Home';
-import SignUp from './SignUp';
-import Add from './Add';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import SignUp from './components/Signup/SignUp';
+import Add from './components/Add/Add';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
