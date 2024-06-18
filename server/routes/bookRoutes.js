@@ -1,22 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const bookController = require('../middleware/bookController');
+const LibraryController = require('../middleware/LibraryController');
 
 //backend/middleware/bookController.js
+console.log('in router');
+router.post('/library/:id', LibraryController.addLibrary, (req, res) => {
+  console.log('inside of the router.post');
+  return res.status(200).json(res.locals.libraries);
+});
 
-router.get('/books', bookController.getBooks, async (req, res) => {
+router.get('/library/:id', LibraryController.getBooks, (req, res) => {
   return res.status(200).json(res.locals.books);
 });
 
-//CRUD Functions
-
 //add book route
-router.post('/books/add', bookController.addBooks, (req, res) => {
+router.post('/books/add', LibraryController.addBooks, (req, res) => {
   return res.status(201).json(res.locals.newBook);
 });
 
 //remove book route
-router.delete('/books/:bookId', bookController.removeBook, (req, res) => {
+router.delete('/books/:bookId', LibraryController.removeBook, (req, res) => {
   return res.status(200).json(res.locals.deletedBook);
 });
 

@@ -4,10 +4,8 @@ const LibraryController = {
     try {
       const { id } = req.params;
       console.log('entered getBooks');
-      const library = await Library.find({ id }).then((data) => {
-        res.locals.books = libray;
-      });
-
+      const library = await Library.find({ id: id });
+      res.locals.books = library;
       return next();
     } catch (err) {
       return next({
@@ -52,4 +50,4 @@ const LibraryController = {
 };
 
 module.exports = LibraryController;
-ts = bookController;
+ts = LibraryController;
