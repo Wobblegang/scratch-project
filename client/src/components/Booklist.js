@@ -7,7 +7,8 @@ const Booklist = ({ booksData }) => {
   const genreSelect = (selectedGenre) => {
     setGenre(selectedGenre);
   };
-  let filteredData = booksData;
+  ///fetch get all books to filter by genre
+  let filteredData = booksData; /// change to response of fetch request
   genre === 'All Books'
     ? filteredData
     : (filteredData = booksData.filter((book) => book.genre === genre));

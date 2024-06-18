@@ -28,7 +28,8 @@ const Add = ({ addNewBook }) => {
       genre: newGenre,
       firstPublishedYear: newFirstPublishedYear,
     };
-    addNewBook(newBook);
+    // addNewBook(newBook);
+    // post reqest to store new book
 
     setNewTitle('');
     setNewAuthor('');
@@ -37,24 +38,24 @@ const Add = ({ addNewBook }) => {
   };
 
   return (
-    <div className="add-box">
+    <div className='add-box'>
       <form>
         <label>Book Title:</label>
         <br />
-        <input type="text" onChange={getNewTitle} value={newTitle} />
+        <input type='text' onChange={getNewTitle} value={newTitle} />
         <br />
         <label>Author:</label>
         <br />
-        <input type="text" onChange={getNewAuthor} value={newAuthor} />
+        <input type='text' onChange={getNewAuthor} value={newAuthor} />
         <br />
         <label>Genre:</label>
         <br />
-        <input type="text" onChange={getNewGenre} value={newGenre} />
+        <input type='text' onChange={getNewGenre} value={newGenre} />
         <br />
         <label>First Published Year:</label>
         <br />
         <input
-          type="text"
+          type='text'
           onChange={getNewFirstPublishedYear}
           value={newFirstPublishedYear}
         />
