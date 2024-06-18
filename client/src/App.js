@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Search from './components/Search/Search';
 import Register from './components/Register/Register';
+import 'normalize.css';
 import Home from './components/Home/Home';
 import Add from './components/Add/Add.js';
 
