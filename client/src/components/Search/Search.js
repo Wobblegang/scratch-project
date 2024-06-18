@@ -1,6 +1,5 @@
-import { useState } from 'react'; //do we need to import react from react too?
-import { useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
+import React, { useState } from 'react'; //do we need to import react from react too?
+import { useNavigate, Link } from 'react-router-dom';
 import './Search.scss';
 
 const Search = () => {
@@ -12,41 +11,38 @@ const Search = () => {
 
   const navigate = useNavigate();
 
+  //if library exists, navigate to library page
   const searchForLibrary = () => {
     console.log('Searching for library with charter number:', charterNumber);
-    fetch(`/api/library/find/${charterNumber}`)
+    const charterNum = charterNumber;
+    setCharterNumber('');
+
+    fetch(`/api/library/find/${charterNum}`)
       .then((res) => res.json())
       .then((data) => {
         console.log('Data:', data);
         if (data.length > 0) {
-          navigate(`/library/${charterNumber}`);
+          navigate(`/library/${charterNum}`);
         } else {
           alert('Library not found');
         }
-      });
-  };
-
-  const toRegister = () => {
-    navigate('/register');
+      })
+      .catch((error) => console.error('Error occured in searchForLibrary:', error));
   };
 
   return (
-    <div>
-      <Header />
-      <div className="charterBox">
-        <h1>Enter a Charter Number</h1>
-        <input 
-          className='charterInput'
-          type="text"
-          placeholder="Charter Number"
-          onChange={getCharterNumber}
-          value={charterNumber}
-          ></input>
-        <button id='searchButton' onClick={searchForLibrary}>Search</button>
-        <button id='toRegisterButton' onClick={toRegister}>Register</button>
-      </div>
+    <div className="searchBody">
+      <h1>Enter a Charter Number</h1>
+      <input 
+        className='charterInput'
+        type="text"
+        placeholder="Charter Number"
+        onChange={getCharterNumber}
+        value={charterNumber}
+        ></input>
+      <button id='searchButton' onClick={searchForLibrary}>Search</button>
+      <Link to='/register' id='toRegister'>Register a Library</Link>
     </div>
-    
   );
 };
 

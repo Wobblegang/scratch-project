@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Add from './components/Add/Add.js';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header/Header.js';
 
 // const BOOKS_DATA = [
 //   {
@@ -30,6 +31,7 @@ const App = () => {
   return (
     <Router>
       <div>
+      <Header />
         <Routes>
           <Route path='/' element={<Search />} />
           <Route path='/register' element={<Register />} />

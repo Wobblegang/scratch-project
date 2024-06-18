@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Add.scss';
 
-const Add = ({ addNewBook }) => {
+//path to add <Route path='/library/:charterNumber/addBook' element={<Add />} />
+const Add = () => {
+  const { charterNumber } = useParams();
   const [newTitle, setNewTitle] = useState('');
   const [newAuthor, setNewAuthor] = useState('');
   const [newGenre, setNewGenre] = useState('');
-  const [newFirstPublishedYear, setNewFirstPublishedYear] = useState('');
 
   const getNewTitle = (e) => {
     setNewTitle(e.target.value);
@@ -16,9 +17,6 @@ const Add = ({ addNewBook }) => {
   const getNewGenre = (e) => {
     setNewGenre(e.target.value);
   };
-  const getNewFirstPublishedYear = (e) => {
-    setNewFirstPublishedYear(e.target.value);
-  };
 
   const saveNowBook = (e) => {
     e.preventDefault();
@@ -26,7 +24,6 @@ const Add = ({ addNewBook }) => {
       title: newTitle,
       author: newAuthor,
       genre: newGenre,
-      firstPublishedYear: newFirstPublishedYear,
     };
     // addNewBook(newBook);
     // post reqest to store new book
