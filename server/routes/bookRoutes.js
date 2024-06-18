@@ -6,10 +6,17 @@ const LibraryController = require('../middleware/LibraryController');
 console.log('in router');
 
 // Add a new library
-router.post('/register', LibraryController.addLibrary, (req, res) => {
-  console.log('inside of the router.post');
+router.post('/library/create', LibraryController.addLibrary, (req, res) => {
   return res.status(200).json(res.locals.libraries);
 });
+
+router.get(
+  '/library/find/:charterNumber',
+  LibraryController.checkLibrary,
+  (req, res) => {
+    return res.status(200).json(res.locals.libCheck);
+  }
+);
 
 // Get books for a specific library
 router.get(
@@ -22,7 +29,7 @@ router.get(
 
 //add a book to a specific library
 router.patch(
-  '/library/:charterNumber/addBook',
+  '/library/:charterNumber',
   LibraryController.addBooks,
   (req, res) => {
     return res.status(201).json(res.locals.Books);
