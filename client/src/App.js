@@ -32,7 +32,7 @@ const App = () => {
   return (
     <Router>
       <div>
-      <Header />
+        <Header />
         <Routes>
           <Route path='/' element={<Search />} />
           <Route path='/register' element={<Register />} />
