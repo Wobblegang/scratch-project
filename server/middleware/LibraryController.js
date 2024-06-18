@@ -49,7 +49,14 @@ const LibraryController = {
       res.locals.deleted = data;
       return next();
     });
-  },
+    .catch((err) => {
+      return next({
+        log: 'Error while creating new Book',
+        status: '500',
+        message: err,
+      });
+   })
+ },
 
   addLibrary: (req, res, next) => {
     console.log('in middelware addLibrary');
@@ -60,7 +67,13 @@ const LibraryController = {
       res.locals.libraries = data;
       return next();
     });
-  },
+    .catch((err) => {
+      return next({
+        log: 'Error while creating new Book',
+        status: '500',
+        message: err,
+      });
+  }
 };
 
 module.exports = LibraryController;
