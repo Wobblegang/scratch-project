@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Bookitem from '../Bookitem/Bookitem';
+import Bookitem from '../BookItem/BookItem';
 import Bookfilter from '../Bookfilter/Bookfilter';
 
 const Booklist = ({ booksData }) => {
