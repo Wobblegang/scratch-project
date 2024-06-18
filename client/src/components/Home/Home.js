@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Booklist from './Booklist';
+import Booklist from './Booklist/Booklist';
 // import Login from './Login';
 import { useNavigate } from 'react-router-dom';
 // import { Navbar, Container } from 'react-bootstrap';
@@ -46,7 +46,7 @@ const Home = ({ booksData }) => {
     <div>
       <h1>Tassled Wobbegong Library</h1>
       <div>
-        <ul className="header-list">
+        <ul className='header-list'>
           <li>Home</li>
 
           <li onClick={goToAdd}>Add</li>

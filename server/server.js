@@ -2,7 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
-const bookRoutes = require('./routes/bookRoutes');
+const libraryRoutes = require('./routes/bookRoutes');
 const PORT = 3000;
 
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 //entering bookRoutes
-app.use('/api', bookRoutes);
+app.use('/api/library', libraryRoutes);
 
 //Global Error Handler
 app.use((err, req, res, next) => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Bookitem from './Bookitem';
-import Bookfilter from './Bookfilter';
+import Bookitem from '../Bookitem/Bookitem';
+import Bookfilter from '../Bookfilter/Bookfilter';
 
 const Booklist = ({ booksData }) => {
   const [genre, setGenre] = useState('All Books');
