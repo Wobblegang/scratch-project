@@ -1,6 +1,21 @@
 const Library = require('../models/Library');
 
 const LibraryController = {
+  checkLibrary: (req, res, next) => {
+    const { charterNumber } = req.params;
+    Library.find({ charterNumber: charterNumber })
+      .then((data) => {
+        res.locals.libCheck = data;
+        return next();
+      })
+      .catch((err) => {
+        return next({
+          log: 'Error in bookController.checkLibrary',
+          message: err,
+        });
+      });
+  },
+
   getBooks: async (req, res, next) => {
     try {
       const { charterNumber } = req.params;
@@ -25,12 +40,8 @@ const LibraryController = {
         library.booksCatalog.push(newBook);
         library.save();
         res.locals.Books = library;
-
-        // console.log(res.locals.Books);
         return next();
       })
-      //// need to go into catalog property after finding library to update cataltog array with new object
-
       .catch((err) => {
         return next({
           log: 'Error while creating new Book',
@@ -41,39 +52,37 @@ const LibraryController = {
   },
 
   removeBook: (req, res, next) => {
-    //continue here
     const { charterNumber } = req.params;
     const book = req.body;
-    Library.findOne({ charterNumber: charterNumber }).then((data) => {
-      data.booksCatalog.remove({ _id: book });
-      res.locals.deleted = data;
-      return next();
-    });
-    .catch((err) => {
-      return next({
-        log: 'Error while creating new Book',
-        status: '500',
-        message: err,
+    Library.findOne({ charterNumber: charterNumber })
+      .then((data) => {
+        data.booksCatalog.remove({ _id: book });
+        res.locals.deleted = data;
+        return next();
+      })
+      .catch((err) => {
+        return next({
+          log: 'Error in bookController.removeBook',
+          message: err,
+        });
       });
-   })
- },
+  },
 
   addLibrary: (req, res, next) => {
     console.log('in middelware addLibrary');
-    console.log(req);
     const { charterNumber } = req.body;
-    console.log('this is id', id);
-    Library.create({ charterNumber: charterNumber }).then((data) => {
-      res.locals.libraries = data;
-      return next();
-    });
-    .catch((err) => {
-      return next({
-        log: 'Error while creating new Book',
-        status: '500',
-        message: err,
+    Library.create({ charterNumber: charterNumber })
+      .then((data) => {
+        res.locals.libraries = data;
+        return next();
+      })
+      .catch((err) => {
+        return next({
+          log: 'Error in bookController.addLibrary',
+          message: err,
+        });
       });
-  }
+  },
 };
 
 module.exports = LibraryController;
