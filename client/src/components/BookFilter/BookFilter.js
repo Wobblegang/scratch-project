@@ -1,10 +1,7 @@
 import React from 'react';
 
 const Bookfilter = ({ genreSelect }) => {
-  const filter = (e) => {
-    const selectedGenre = e.target.value;
-    genreSelect(selectedGenre);
-  };
+  
   return (
     <div style={{ marginBottom: '10px' }}>
       Genre:

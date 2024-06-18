@@ -6,7 +6,7 @@ function Header() {
   return (
     <header className='header'>
       <div className='logo-container'>
-        <p>TWLC</p> 
+        <p>LFLF</p> 
       </div>
       <nav className='nav'>
         <ul>
