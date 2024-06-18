@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import './Header.scss'
 
 function Header() {
   return (
     <header className='header'>
       <div className='logo-container'>
-        <p>TWLC</p> 
+        <p>LFLF</p> 
       </div>
       <nav className='nav'>
         <ul>

@@ -2,10 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 25px;
 }
 
-.nav {
+.nav ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  list-style-type: none;
+}
+
+.nav ul li:not(:first-child) {
+  margin-left: 15px;
 }
