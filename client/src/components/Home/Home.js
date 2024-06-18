@@ -1,62 +1,50 @@
-import React, { useState } from 'react';
-import Booklist from '../Booklist/Booklist';
-// import Login from './Login';
-import { useNavigate } from 'react-router-dom';
-// import { Navbar, Container } from 'react-bootstrap';
+import React, { useState } from 'react'; //do we need to import react from react too?
+import { useNavigate, Link } from 'react-router-dom';
 import './Home.scss';
 
-const Home = ({ booksData }) => {
+const Home = () => {
+  const [charterNumber, setCharterNumber] = useState('');
+
+  const getCharterNumber = (e) => {
+    setCharterNumber(e.target.value);
+  };
+
   const navigate = useNavigate();
 
-  //implementation of useState/useEffect renders blank page
-  // const [booksData, setBooksData] = useState([]);
+  //if library exists, navigate to library page
+  const searchForLibrary = () => {
+    console.log('Searching for library with charter number:', charterNumber);
+    const charterNum = charterNumber;
+    setCharterNumber('');
 
-  // useEffect(() => {
-  //   const fetchBooks = async () => {
-  //     try {
-  //       const response = await fetch('http://localhost:8080/api/books');
-  //       const data = await response.json();
-  //       setBooksData(data);
-  //     } catch (error) {
-  //       console.error(['Error fetching books', error]);
-  //     }
-  //   };
-
-  //   fetchBooks();
-  // }, []);
-
-  const goToAdd = () => {
-    navigate('/add');
-  };
-
-  const goToLogin = () => {
-    navigate('/login');
-  };
-
-  const goToSignup = () => {
-    navigate('/signup');
+    fetch(`/api/library/find/${charterNum}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('Data:', data);
+        if (data.length > 0) {
+          navigate(`/library/${charterNum}`);
+        } else {
+          alert('Library not found');
+        }
+      })
+      .catch((error) => console.error('Error occured in searchForLibrary:', error));
   };
 
   return (
-    // <Navbar>
-    //   <Container>
-    //     <Button>Login</Button>
-    //   </Container>
-    // </Navbar>
-    <div>
-      <h1>Tassled Wobbegong Library</h1>
-      <div>
-        <ul className='header-list'>
-          <li>Home</li>
-
-          <li onClick={goToAdd}>Add</li>
-          <li onClick={goToLogin}>Login</li>
-          <li onClick={goToSignup}>Signup</li>
-        </ul>
-        <hr />
-      </div>
-      <Booklist booksData={booksData} />
+    <div className="searchBody">
+      <h1>Little Free Library Finder</h1>
+      <p>Enter a Charter Number</p>
+      <input 
+        className='charterInput'
+        type="text"
+        placeholder="Charter Number"
+        onChange={getCharterNumber}
+        value={charterNumber}
+        ></input>
+      <button id='searchButton' onClick={searchForLibrary}>Search</button>
+      <Link to='/register' id='toRegister'>Register a Library</Link>
     </div>
   );
 };
+
 export default Home;

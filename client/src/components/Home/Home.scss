@@ -1,14 +1,11 @@
-h1 {
-  text-align: center;
+.searchBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
 }
 
-.header-list {
-  padding: 0;
-  list-style: none;
-  text-align: center;
-}
-
-.header-list li {
-  display: inline-block;
-  margin-right: 10px;
+p {
+  font-size: 1.3rem;
+  margin: 20px;
 }
