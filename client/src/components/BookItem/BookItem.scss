@@ -1,10 +1,10 @@
-.book-box {
-  color: black;
-  background: #f3f3f3;
-  padding: 2rem;
+.book-container {
   border: 1px solid lightgray;
   box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+  color: black;
   display: flex;
+  flex-direction: column;
+  padding: 5px;
 }
 
 .book-box img {
@@ -12,3 +12,5 @@
   height: 100px;
   display: block;
 }
+
+

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Login from './components/Login/Login';
+import 'normalize.css';
 import Home from './components/Home/Home';
 import SignUp from './components/Signup/SignUp';
 import Add from './components/Add/Add';
