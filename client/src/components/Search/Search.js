@@ -32,7 +32,8 @@ const Search = () => {
 
   return (
     <div className="searchBody">
-      <h1>Enter a Charter Number</h1>
+      <h1>Little Free Library Finder</h1>
+      <p>Enter a Charter Number</p>
       <input 
         className='charterInput'
         type="text"
