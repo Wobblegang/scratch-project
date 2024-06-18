@@ -6,20 +6,28 @@ const LibraryController = require('../middleware/LibraryController');
 console.log('in router');
 
 // Add a new library
-router.post('/library/:id', LibraryController.addLibrary, (req, res) => {
+router.post('/register', LibraryController.addLibrary, (req, res) => {
   console.log('inside of the router.post');
   return res.status(200).json(res.locals.libraries);
 });
 
 // Get books for a specific library
-router.get('/library/:id', LibraryController.getBooks, (req, res) => {
-  return res.status(200).json(res.locals.books);
-});
+router.get(
+  '/library/:charterNumber',
+  LibraryController.getBooks,
+  (req, res) => {
+    return res.status(200).json(res.locals.books);
+  }
+);
 
 //add a book to a specific library
-router.patch('/library/add/:id', LibraryController.addBooks, (req, res) => {
-  return res.status(201).json(res.locals.Books);
-});
+router.patch(
+  '/library/:charterNumber/addBook',
+  LibraryController.addBooks,
+  (req, res) => {
+    return res.status(201).json(res.locals.Books);
+  }
+);
 
 //remove book route
 router.delete(

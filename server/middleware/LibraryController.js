@@ -1,10 +1,11 @@
 const Library = require('../models/Library');
+
 const LibraryController = {
   getBooks: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { charterNumber } = req.params;
       console.log('entered getBooks');
-      const library = await Library.findOne({ charterNumber: id });
+      const library = await Library.findOne({ charterNumber: charterNumber });
       res.locals.books = library.booksCatalog;
       return next();
     } catch (err) {
@@ -17,9 +18,9 @@ const LibraryController = {
 
   addBooks: (req, res, next) => {
     const { title, author, genre } = req.body;
-    const { id } = req.params;
+    const { charterNumber } = req.params;
     const newBook = { title, author, genre };
-    Library.findOne({ charterNumber: id })
+    Library.findOne({ charterNumber: charterNumber })
       .then((library) => {
         library.booksCatalog.push(newBook);
         library.save();
@@ -41,9 +42,9 @@ const LibraryController = {
 
   removeBook: (req, res, next) => {
     //continue here
-    const { id } = req.params;
+    const { charterNumber } = req.params;
     const book = req.body;
-    Library.findOne({ charterNumber: id }).then((data) => {
+    Library.findOne({ charterNumber: charterNumber }).then((data) => {
       data.booksCatalog.remove({ _id: book });
       res.locals.deleted = data;
       return next();
@@ -53,9 +54,9 @@ const LibraryController = {
   addLibrary: (req, res, next) => {
     console.log('in middelware addLibrary');
     console.log(req);
-    const { id } = req.params;
+    const { charterNumber } = req.body;
     console.log('this is id', id);
-    Library.create({ charterNumber: id }).then((data) => {
+    Library.create({ charterNumber: charterNumber }).then((data) => {
       res.locals.libraries = data;
       return next();
     });
