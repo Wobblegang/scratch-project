@@ -4,8 +4,8 @@ const LibraryController = {
     try {
       const { id } = req.params;
       console.log('entered getBooks');
-      const library = await Library.find({ id: id });
-      res.locals.books = library;
+      const library = await Library.findOne({ charterNumber: id });
+      res.locals.books = library.booksCatalog;
       return next();
     } catch (err) {
       return next({
@@ -14,18 +14,22 @@ const LibraryController = {
       });
     }
   },
+
   addBooks: (req, res, next) => {
-    const { title, author, description, status, addedDate } = req.body;
+    const { title, author, genre } = req.body;
     const { id } = req.params;
-    Library.findOneAndUpdate(
-      { id: id },
-      { title, author, description, status, addedDate }
-    ) //// need to go into catalog property after finding library to update cataltog array with new object
-      .then((data) => {
-        console.log('Entered /api/books/add');
-        res.locals.newBook = data;
+    const newBook = { title, author, genre };
+    Library.findOne({ charterNumber: id })
+      .then((library) => {
+        library.booksCatalog.push(newBook);
+        library.save();
+        res.locals.Books = library;
+
+        // console.log(res.locals.Books);
         return next();
       })
+      //// need to go into catalog property after finding library to update cataltog array with new object
+
       .catch((err) => {
         return next({
           log: 'Error while creating new Book',
@@ -34,15 +38,24 @@ const LibraryController = {
         });
       });
   },
+
   removeBook: (req, res, next) => {
     //continue here
+    const { id } = req.params;
+    const book = req.body;
+    Library.findOne({ charterNumber: id }).then((data) => {
+      data.booksCatalog.remove({ _id: book });
+      res.locals.deleted = data;
+      return next();
+    });
   },
+
   addLibrary: (req, res, next) => {
     console.log('in middelware addLibrary');
     console.log(req);
     const { id } = req.params;
     console.log('this is id', id);
-    Library.create({ id }).then((data) => {
+    Library.create({ charterNumber: id }).then((data) => {
       res.locals.libraries = data;
       return next();
     });
