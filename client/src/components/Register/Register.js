@@ -55,18 +55,19 @@ const Register = () => {
 
 
   return (
-    <div className="registerBody">
-      <h1>Enter a Charter Number</h1>
+    <main>
+      <h1>Register a New Library</h1>
+      <p>Enter a Charter Number</p>
       <input 
-        className='charterInput'
+        className='charter-input'
         type="text"
         placeholder="Charter Number"
         onChange={getCharterNumber}
         value={charterNumber}
         ></input>
-      <button id='searchButton' onClick={checkLibrary}>Search</button>
+      <button class='btn-1 search-btn' onClick={checkLibrary}>Register Library</button>
       <Link to='/' id='toSearch'>Search for a Library</Link>
-    </div>
+    </main>
   );
 };
 
