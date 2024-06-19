@@ -31,19 +31,19 @@ const Home = () => {
   };
 
   return (
-    <div className="searchBody">
-      <h1>Little Free Library Finder</h1>
+    <main>
+      <h1>Find a Free Library</h1>
       <p>Enter a Charter Number</p>
       <input 
-        className='charterInput'
+        className='charter-input'
         type="text"
         placeholder="Charter Number"
         onChange={getCharterNumber}
         value={charterNumber}
         ></input>
-      <button id='searchButton' onClick={searchForLibrary}>Search</button>
+      <button className='btn-1 search-btn' onClick={searchForLibrary}>Search</button>
       <Link to='/register' id='toRegister'>Register a Library</Link>
-    </div>
+    </main>
   );
 };
 
