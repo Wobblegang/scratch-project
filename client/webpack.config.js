@@ -22,6 +22,15 @@ module.exports = {
         test: /\.s?css/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
+      },
+
     ],
   },
   resolve: {
@@ -31,6 +40,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    // new CopyPlugin({
+    //   patterns: [
+    //     { from: 'src/assets', to: 'assets' },
+    //   ],
+    // }),
   ],
   devServer: {
     historyApiFallback: true,
