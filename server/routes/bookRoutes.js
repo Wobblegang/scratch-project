@@ -7,7 +7,9 @@ console.log('in router');
 
 // Add a new library
 router.post('/library/create', LibraryController.addLibrary, (req, res) => {
-  return res.status(200).json({success: true, libraries: res.locals.libraries});
+  return res
+    .status(200)
+    .json({ success: true, libraries: res.locals.libraries });
 });
 
 router.get(
@@ -32,7 +34,7 @@ router.patch(
   '/library/:charterNumber',
   LibraryController.addBooks,
   (req, res) => {
-    return res.status(201).json(res.locals.Books);
+    return res.status(201).json({ success: true, libraries: res.locals.Books });
   }
 );
 
