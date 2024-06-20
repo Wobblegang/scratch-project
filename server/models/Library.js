@@ -13,4 +13,12 @@ const LibrarySchema = new mongoose.Schema({
   booksCatalog: [BookSchema],
 });
 
-module.exports = mongoose.model('Library', LibrarySchema);
+const Library = mongoose.model('Library', LibrarySchema);
+
+Library.on('index', (error) => {
+  if (error) {
+    console.error('Error creating indexes:', error);
+  }
+});
+
+module.exports = Library;
