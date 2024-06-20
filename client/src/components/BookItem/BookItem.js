@@ -8,9 +8,9 @@ const BookItem = (props) => {
     <div className='bookContainer'>
       <img className='bookItem-img' src={props.img} />
       <ul>
-        <li><span className='book-data'>Title:</span> {props.title}</li>
-        <li><span className='book-data'>Author:</span> {props.author}</li>
-        <li><span className='book-data'>Genre:</span>{props.genre}</li>
+        <li className='book-title'>{props.title}</li>
+        <li className='book-author'><span className='book-by'>by</span> {props.author}</li>
+        <li className='book-genre'><span className='genre'>Genre:</span> {props.genre}</li>
       </ul>
     </div>
   );
