@@ -3,17 +3,17 @@ import './BookItem.scss';
 
 // img={tempImage} title={book.title} author={book.author} genre={book.genre} charterNumber={props.charterNumber}
 
-const Bookitem = (props) => {
+const BookItem = (props) => {
   return (
-    <div className="book-container">
-      <img src={props.img} />
+    <div className='bookContainer'>
+      <img className='bookItem-img' src={props.img} />
       <ul>
-        <li>Title: {props.title}</li>
-        <li>Author: {props.author}</li>
-        <li>Genre:{props.genre}</li>
+        <li><span className='book-data'>Title:</span> {props.title}</li>
+        <li><span className='book-data'>Author:</span> {props.author}</li>
+        <li><span className='book-data'>Genre:</span>{props.genre}</li>
       </ul>
     </div>
   );
 };
 
-export default Bookitem;
+export default BookItem;

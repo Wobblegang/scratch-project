@@ -1,3 +1,7 @@
+/***
+Global HTML Elements Defaulut CSS
+***/
+
 body {
   background-color: #f8f8f8;
   margin: 0;
@@ -19,7 +23,6 @@ h6 {
   font-family: 'Open Sans', sans-serif;
 }
 
-/* Specific styling for input and textarea placeholders */
 input::placeholder, 
 textarea::placeholder {
   font-family: 'Open Sans', sans-serif;
@@ -36,6 +39,24 @@ p {
   font-weight: 400;
   margin: -5px 0;
 }
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #dddddd;
+}
+
+/***
+Global Custom Elements 
+***/
 
 .app {
   background-color: white;
@@ -54,8 +75,4 @@ p {
   min-height: 30px;
   min-width: 100px;
   padding: 0 25px;
-}
-
-.btn-1:hover {
-  background-color: #F8F8F8;
 }
