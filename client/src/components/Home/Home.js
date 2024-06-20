@@ -31,8 +31,8 @@ const Home = () => {
   };
 
   return (
-    <main>
-      <h1>Find a Free Library</h1>
+    <main className='home-main'>
+      <h1 className='home-h1'>Find a Free Library</h1>
       <p>Enter a Charter Number</p>
       <input 
         className='charter-input'
@@ -41,7 +41,7 @@ const Home = () => {
         onChange={getCharterNumber}
         value={charterNumber}
         ></input>
-      <button className='btn-1 search-btn' onClick={searchForLibrary}>Search</button>
+      <button className='btn btn-1 search-btn' onClick={searchForLibrary}>Search</button>
       <Link to='/register' id='toRegister'>Register a Library</Link>
     </main>
   );

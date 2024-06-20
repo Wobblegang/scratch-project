@@ -6,8 +6,20 @@
   padding: 20px 3vw;
 }
 
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
-  width: 60px;
+  margin-right: 8px;
+  width: 50px;
+}
+
+.site-name {
+  font-family: 'Gwendolyn';
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .nav ul {
