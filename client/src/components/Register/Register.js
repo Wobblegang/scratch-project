@@ -65,7 +65,7 @@ const Register = () => {
         onChange={getCharterNumber}
         value={charterNumber}
         ></input>
-      <button class='btn btn-1 search-btn' onClick={checkLibrary}>Register Library</button>
+      <button className='btn btn-1 search-btn' onClick={checkLibrary}>Register Library</button>
       <Link to='/' id='toSearch'>Search for a Library</Link>
     </main>
   );
