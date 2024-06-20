@@ -1,11 +1,29 @@
-.searchBody {
+.home-main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-p {
-  font-size: 1.3rem;
-  margin: 20px;
+.home-h1 {
+  margin-bottom: 30px;
+}
+
+.home-form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.charter-input {
+  border: solid 1px gray;
+  border-radius: 7px;
+  margin: 15px;
+  height: 30px;
+  padding: 0 12px;
+}
+
+.search-btn {
+  margin-bottom: 30px;
 }

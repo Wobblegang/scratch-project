@@ -1,16 +1,23 @@
-.library-container {
+.library-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  padding: 40px 3vw;
 }
 
-h2 {
-  align-self: flex-start;
+.library-h2 {
+  align-self: flex-start; 
+  margin-bottom: 30px;
 }
 
-.options-bar {
+.library-options-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
+} 
+
+.library-filter {
+  margin-left: 10px;
 }
+

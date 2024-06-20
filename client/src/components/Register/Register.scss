@@ -1,11 +1,23 @@
-.registerBody {
+.register-main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: black;
-  background: #f3f3f3;
-  padding: 2rem;
-  border: 1px solid lightgray;
-  box-shadow: 1px 1px 5px rgba(22, 22, 22, 0.915);
+  height: 100vh;
+}
+
+.register-h1 {
+  margin-bottom: 30px;
+}
+
+.charter-input {
+  border: solid 1px gray;
+  border-radius: 7px;
+  margin: 15px;
+  height: 30px;
+  padding: 0 12px;
+}
+
+.search-btn {
+  margin-bottom: 30px;
 }

@@ -23,6 +23,7 @@ const LibraryController = {
       console.log('entered getBooks');
       const library = await Library.findOne({ charterNumber: charterNumber });
       res.locals.books = library.booksCatalog;
+      console.log(res.locals.books);
       return next();
     } catch (err) {
       return next({
