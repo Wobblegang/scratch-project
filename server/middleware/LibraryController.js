@@ -3,6 +3,7 @@ const Library = require('../models/Library');
 const LibraryController = {
   checkLibrary: (req, res, next) => {
     const { charterNumber } = req.params;
+    console.log("this is charternum " , charterNumber)
     Library.find({ charterNumber: charterNumber })
       .then((data) => {
         res.locals.libCheck = data;
